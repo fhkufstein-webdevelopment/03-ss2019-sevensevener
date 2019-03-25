@@ -78,7 +78,7 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
      */
     this.checkForLength = function() {
 
-        return this.passwordField.toString().length >= 8;
+        return this.passwordField.value.length >= 8;
     };
 
     /*
