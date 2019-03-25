@@ -7,10 +7,14 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
 
     this.minLength = 8; //this is what we defined and what we need to consider in our length check
 
+    /**
+     * Änderungen markiert mit todo X
+     */
+
     //this attributes are set with our constructor
-    this.wrapperField = $(wrapperId);
-    this.passwordField = $(passwordInputFieldId);
-    this.passwordSubmitButton = $(passwordSubmitButtonId);
+    this.wrapperField = $(wrapperId);                       // todo X $ sign for jQuery-obj
+    this.passwordField = $(passwordInputFieldId);           // todo X
+    this.passwordSubmitButton = $(passwordSubmitButtonId);  // todo X
 
 
     var that = this; //a trick because this is a keyword and means different things in a new context! Especially when you work with events or if you call functions outside your class "this" won't mean you!
@@ -21,22 +25,22 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     //if we are in the password field an enter text - JavaScript Method "onkeyup" or "onkeup" - again in our case the field this.passwordField
     //if we try to click the submit button - JavaScript Method "onclick" - in our case this.passwordSubmitButton
 
-    this.passwordField.blur(function() {
+    this.passwordField.blur(function() {    // todo X
         //the keyword "this" is always referring to its context.
         //onblur is an event which happens in "passwordField" -> so the keyword "this" would refer to the passwordField NOT to our class
         //therefore we previously saved "this" in a variable called "that"
         that.check();
     });
 
-    this.passwordField.keydown(function() {
+    this.passwordField.keydown(function() {  // todo X
         that.check();
     });
 
-    this.passwordField.focus(function() {
+    this.passwordField.focus(function() {   // todo X
         that.check();
     });
 
-    this.passwordSubmitButton.click(function() {
+    this.passwordSubmitButton.click(function() {    // todo X
         that.check();
     });
 
@@ -51,13 +55,13 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
 
             //if it is long enough and has a special character - everything is fine
             if(longEnough && hasSpecialChars) {
-                this.wrapperField.removeClass(this.warningClass + ' ' + this.errorClass).addClass(this.successClass);
+                this.wrapperField.removeClass(this.warningClass + ' ' + this.errorClass).addClass(this.successClass);   // todo X
                 this.passwordSubmitButton.attr('disabled', false);
             } else if(!hasSpecialChars && longEnough) { //if it is long enough but it has no special character set class warning
-                this.wrapperField.removeClass(this.successClass + ' ' + this.errorClass).addClass(this.warningClass);
+                this.wrapperField.removeClass(this.successClass + ' ' + this.errorClass).addClass(this.warningClass);   // todo X
                 this.passwordSubmitButton.attr('disabled', true);
             } else { //if it is not long enough set class error
-                this.wrapperField.removeClass(this.warningClass + ' ' + this.successClass).addClass(this.errorClass);
+                this.wrapperField.removeClass(this.warningClass + ' ' + this.successClass).addClass(this.errorClass);   // todo X
                 this.passwordSubmitButton.attr('disabled', true);
             }
 
@@ -71,23 +75,14 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     };
 
     //TODO 2 start
-    /*
-    This method should return true if the length of passwordField value is greater or equal to this.minLength
-     */
+    /*This method should return true if the length of passwordField value is greater or equal to this.minLength*/
     this.checkForLength = function() {
-        //@todo
-        //have a look at javascript string methods and properties
-        return true; //this needs to be replaced!
+
     };
 
-    /*
-    This method returns true if no special Character "!§$_.:,;" is found in this.password - otherwise false
-     */
+    /*This method returns true if no special Character "!§$_.:,;" is found in this.password - otherwise false*/
     this.checkForSpecialCharacters = function() {
-        //@todo
-        //have a look at javascript string methods and properties
-        //you could probably "match" it somehow
-        return true; //this needs to be replaced!
+
     };
     //TODO 2 end
 }
